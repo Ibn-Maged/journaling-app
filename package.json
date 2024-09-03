@@ -1,0 +1,24 @@
+{
+  "name": "journaling-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ibn-Maged/journaling-app.git"
+  },
+  "author": "Mohamed Maged",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ibn-Maged/journaling-app/issues"
+  },
+  "homepage": "https://github.com/Ibn-Maged/journaling-app#readme",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
