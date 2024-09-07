@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Ibn-Maged/journaling-app#readme",
   "description": "",
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "ejs": "^3.1.10",
     "express": "^4.19.2"
   }
