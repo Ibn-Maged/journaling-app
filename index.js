@@ -3,10 +3,15 @@ import express from 'express';
 const app = express();
 const port = 3000;
 
+const posts = [
+    {title: "Post 1", content: "Content 1"},
+    {title: "Post 2", content: "Content 2"}
+];
+
 app.use(express.static("public"));
 
 app.get("/", (req, res) =>{
-    res.render("index.ejs");
+    res.render("index.ejs", {posts: posts});
 });
 
 app.get("/about", (req, res) => {
