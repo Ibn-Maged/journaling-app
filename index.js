@@ -1,14 +1,13 @@
 import express from 'express';
+import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
 
-const posts = [
-    {title: "Post 1", content: "Content 1"},
-    {title: "Post 2", content: "Content 2"}
-];
+const posts = [];
 
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) =>{
     res.render("index.ejs", {posts: posts});
@@ -24,6 +23,12 @@ app.get("/contact", (req, res) => {
 
 app.get("/post/new", (req, res) => {
     res.render("new_post.ejs");
+});
+
+app.post("/post/add", (req, res) => {
+    const new_post = {title: req.body["title"], content: req.body["content"]};
+    posts.push(new_post);
+    res.redirect("/");
 });
 
 app.listen(port, () => {
