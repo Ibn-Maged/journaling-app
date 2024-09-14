@@ -31,6 +31,30 @@ app.post("/post/add", (req, res) => {
     res.redirect("/");
 });
 
+app.get("/post/edit/:title", (req, res) => {
+    const post = findPost(req.params.title);
+    res.render("edit_post.ejs", {title: post.title, content: post.content});
+});
+
+app.post("/post/edit/:title", (req, res) => {
+    for(let i = 0; i < posts.length; ++i){
+        if(posts[i].title == req.params.title){
+            posts[i].title = req.body["title"];
+            posts[i].content = req.body["content"];
+            break;
+        }
+    }    
+    res.redirect("/");
+});
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 })
+
+function findPost(title){
+    for(let i = 0; i < posts.length; ++i){
+        if(posts[i].title == title){
+            return posts[i];
+        }
+    }
+}

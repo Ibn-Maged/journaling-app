@@ -23,8 +23,12 @@
                         <%= posts[i]["title"] %>
                     </h4>
                     <div class="hidden-buttons">
-                        <img src="pencil.svg" class="icon">
-                        <img src="trash.svg" class="icon">
+                        <a href="/post/edit/<%= posts[i]["title"] %>">
+                            <img src="pencil.svg" class="icon">
+                        </a>
+                        <a href="/post/delete/<%= posts[i]["title"] %>">
+                            <img src="trash.svg" class="icon">
+                        </a>
                     </div>
                 </div>
                 <p class="post-content"><%= posts[i]["content"] %></p>
