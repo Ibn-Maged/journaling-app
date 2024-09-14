@@ -8,32 +8,34 @@
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <title>Index</title>
 </head>
-<body class="container-lg d-flex flex-column vh-100">
+<body class="d-flex flex-column vh-100 bg-body">
     <%- include('partials/navbar.ejs') %>
-    <% if(posts.length == 0) { %>
-        <div class="d-flex justify-content-center align-items-center flex-column flex-grow-1">
-            <h3>Looks Like You Haven't Posted Yet.</h3>
-            <a class="btn btn-primary" href="/post/new">Add Your First Post</a>
-        </div>
-    <% } else {%>
-        <% for(let i = 0; i < posts.length; ++i){ %>
-            <div class="post bg-body-teritary">
-                <div class="head-section">
-                    <h4>
-                        <%= posts[i]["title"] %>
-                    </h4>
-                    <div class="hidden-buttons">
-                        <a href="/post/edit/<%= posts[i]["title"] %>">
-                            <img src="pencil.svg" class="icon">
-                        </a>
-                        <a href="/post/delete/<%= posts[i]["title"] %>">
-                            <img src="trash.svg" class="icon">
-                        </a>
+    <div class="container-lg">
+        <% if(posts.length == 0) { %>
+            <div class="d-flex justify-content-center align-items-center flex-column flex-grow-1">
+                <h3>Looks Like You Haven't Posted Yet.</h3>
+                <a class="btn btn-primary" href="/post/new">Add Your First Post</a>
+            </div>
+        <% } else {%>
+            <% for(let i = 0; i < posts.length; ++i){ %>
+                <div class="post bg-body-secondary">
+                    <div class="head-section">
+                        <h4>
+                            <%= posts[i]["title"] %>
+                        </h4>
+                        <div class="hidden-buttons">
+                            <a href="/post/edit/<%= posts[i]["title"] %>">
+                                <img src="pencil.svg" class="icon">
+                            </a>
+                            <a href="/post/delete/<%= posts[i]["title"] %>">
+                                <img src="trash.svg" class="icon">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <p class="post-content"><%= posts[i]["content"] %></p>
-            </div>    
+                    <p class="post-content"><%= posts[i]["content"] %></p>
+                </div>    
+            <% } %>
         <% } %>
-    <% } %>
+    </div>
 </body>
 </html>

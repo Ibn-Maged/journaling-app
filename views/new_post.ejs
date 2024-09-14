@@ -7,18 +7,20 @@
     <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
     <title>New Post</title>
 </head>
-<body class="container-lg">
+<body class="bg-body">
     <%- include('partials/navbar.ejs') %>
-    <form action="/post/add" method="post">
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title" id="title">
-        </div>
-        <div class="mb-3">
-            <label for="content" class="form-label">Content</label>
-            <textarea class="form-control" name="content" id="content" style="height: 200px;"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="container-lg">
+        <form action="/post/add" method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" id="title">
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea class="form-control" name="content" id="content" style="height: 200px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
