@@ -1,3 +1,28 @@
 .post{
-    
+    display: flex;
+    flex-direction: column;
+}
+
+.post:hover .hidden-buttons{
+    display: flex;
+}
+
+.icon{
+    width: 20px;
+    cursor: pointer;
+}
+
+.head-section{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.hidden-buttons{
+    display: none;
+    gap: 20px;
+}
+
+.post-content{
+    font-size: 24px;
 }
