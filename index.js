@@ -47,6 +47,15 @@ app.post("/post/edit/:title", (req, res) => {
     res.redirect("/");
 });
 
+app.get("/post/delete/:title", (req, res) => {
+    for(let i = 0; i < posts.length; ++i){
+        if(posts[i].title == req.params.title){
+            posts.splice(i, 1);
+        }
+    }
+    res.redirect("/");
+});
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 })
