@@ -1,13 +1,19 @@
 import express from 'express';
 import bodyParser from "body-parser";
+import { fileURLToPath } from 'url';
+import path from 'path';
 
 const app = express();
 const port = 3000;
 
 const posts = [];
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
 app.get("/", (req, res) =>{
     res.render("index.ejs", {posts: posts});
